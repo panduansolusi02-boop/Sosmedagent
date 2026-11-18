@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salam Semangat Tim Sosial Media</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg,#b8f3ff,#e7c9ff,#ffd8e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.float {
+    position: absolute;
+    top: -50px;
+    animation: jatuh linear infinite;
+    opacity: .8;
+}
+
+@keyframes jatuh {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* CONTAINER */
+.container {
+    width: 92%;
+    max-width: 750px;
+    min-height: 530px;
+    background: rgba(255,255,255,.88);
+    border-radius: 30px;
+    box-shadow: 0 15px 50px #7250a633;
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+    z-index: 2;
+}
+
+/* SLIDES */
+.slide {
+    display: none;
+    min-height: 420px;
+    animation: masuk .6s ease;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes masuk {
+    from {
+        opacity: 0;
+        transform: translateX(45px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+h1 {
+    color: #793bc0;
+    font-size: 34px;
+    margin: 15px 0;
+}
+
+h2 {
+    color: #793bc0;
+    font-size: 27px;
+    margin: 12px 0;
+}
+
+p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.character {
+    font-size: 85px;
+    animation: goyang 2s infinite ease-in-out;
+}
+
+@keyframes goyang {
+    0%,100% { transform: rotate(-8deg) translateY(0); }
+    50% { transform: rotate(8deg) translateY(-12px); }
+}
+
+.heart {
+    font-size: 45px;
+    animation: detak 1s infinite;
+}
+
+@keyframes detak {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* CARD */
+.name-card {
+    background: linear-gradient(135deg,#f3e5ff,#ffe4f0);
+    padding: 25px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 470px;
+    margin-top: 15px;
+    box-shadow: 0 7px 20px #00000010;
+}
+
+.name-card h2 {
+    font-size: 30px;
+}
+
+.tag {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 25px;
+    background: #9b5cce;
+    color: white;
+    font-size: 13px;
+}
+
+/* BUTTON */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.next {
+    background: #8747c7;
+    color: white;
+}
+
+.back {
+    background: #eee0ff;
+    color: #7136a8;
+}
+
+.counter {
+    color: #8747c7;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.progress {
+    height: 7px;
+    background: #eee;
+    border-radius: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 12.5%;
+    background: linear-gradient(90deg,#9c54dd,#f47eb8);
+    transition: .5s;
+}
+
+.footer {
+    font-size: 12px;
+    color: #999;
+    margin-top: 12px;
+}
+
+.special {
+    color: #d34d99;
+    font-weight: bold;
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    z-index: 10;
+    pointer-events: none;
+    animation: confetti 3s linear forwards;
+}
+
+@keyframes confetti {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:500px) {
+    .container {
+        padding: 20px;
+        min-height: 510px;
+    }
+
+    h1 { font-size: 27px; }
+    h2 { font-size: 23px; }
+    p { font-size: 15px; }
+    .character { font-size: 70px; }
+    button { padding: 12px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg" id="background"></div>
+
+<div class="container">
+
+    <!-- SLIDE 1 -->
+    <section class="slide active">
+        <div class="character">🐻</div>
+        <div class="heart">💜</div>
+        <h1>HALOOOOO!</h1>
+        <h2>Pejuang Sosial Media!</h2>
+        <p>
+            Ada pesan spesial nih buat kalian semua...
+            <br>
+            Jangan buru-buru kabur ya! 😂
+            <br><br>
+            Silakan tekan tombol NEXT
+            untuk membuka kejutan!
+        </p>
+        <span class="tag">SPECIAL MESSAGE ❤️</span>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section class="slide">
+        <div class="character">🎉</div>
+        <h1>WELCOME TEAM!</h1>
+        <p>
+          
+            <br>
+            <b>RIYAN • SAMUDRA • REZI • BUDI</b>
+            <br>
+            <b>WIDYA • AINUN • AANG • ELLY • HESTY</b>
+            <br><br>
+            Terima kasih sudah menjadi bagian
+            dari tim yang luar biasa!
+            <br>
+            Walaupun kerjaan kadang bikin kepala muter...
+            kita tetap harus kompak! 🤣
+        </p>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section class="slide">
+        <div class="character">😎</div>
+        <div class="name-card">
+            <h2>RIYAN</h2>
+            <p>
+                Tetap semangat, Riyan!
+                Jangan sampai jari lebih cepat mengetik
+                dari pada otak memproses anomali.
+                <br><br>
+                Ingat, masalah boleh banyak,
+                tapi senyum jangan sampai hilang! 😂
+            </p>
+            <span class="tag">THE KEYBOARD HERO</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="character">🌊</div>
+        <div class="name-card">
+            <h2>SAMUDRA</h2>
+            <p>
+                Seluas samudra kesabaranmu,
+                semoga tidak seluas lautan pertanyaan nasabah.
+                <br><br>
+                Tetap tenang, jangan sampai
+                ikut tenggelam dalam chat! 🤣
+            </p>
+            <span class="tag">THE OCEAN OF PATIENCE</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="character">🔥</div>
+        <div class="name-card">
+            <h2>REZI & BUDI</h2>
+            <p>
+                Rezi, tetap membara semangatnya! jangan tinggal Sholat nya
+                <br>
+                Budi, jangan lupa template diperbaharui
+                <br><br>
+                
+            </p>
+            <span class="tag">THE UNSTOPPABLE TEAM</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="character">🌸</div>
+        <div class="name-card">
+            <h2>WIDYA & HESTY</h2>
+            <p>
+                Tetap cantik, ceria, dan penuh energi!
+                <br><br>
+                Nasabah boleh bertanya berkali-kali,
+                tetapi jawaban tetap harus penuh diplomasi.
+                <br>
+                Senyum terus, ladies! 💕
+            </p>
+            <span class="tag">THE SMILE SQUAD</span>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="character">⚡</div>
+        <div class="name-card">
+            <h2>AANG, ELLY & HESTY</h2>
+            <p>
+                Aang, kuasai empat elemen kesabaran!
+                <br>
+                Elly dan Ainun, tetap pancarkan energi positif!
+                <br><br>
+                Semoga semua chat selesai,
+                semua masalah teratasi,
+                dan target selalu tercapai! 😁
+            </p>
+            <span class="tag">THE SOLUTION HEROES</span>
+        </div>
+    </section>
+
+    <!-- SLIDE 8 -->
+    <section class="slide">
+        <div class="character">🏆</div>
+        <h1>WE ARE ONE TEAM!</h1>
+        <h2>Untuk Nasabah Anomali & Agent Jogja!</h2>
+        <p>
+            Tetap semangat dalam melayani!
+            <br><br>
+            Nasabah boleh anomali,
+            pertanyaan boleh berulang kali,
+            Agent Jogja boleh bikin penasaran...
+            <br><br>
+            Tapi semangat kita jangan sampai kehilangan jaringan!
+            📶🤣
+            <br><br>
+            <span class="special">
+                YANG BOLEH OFFLINE CUMA HP,
+                BUKAN SEMANGAT KITA!
+            </span>
+        </p>
+    </section>
+
+    <!-- SLIDE 9 -->
+    <section class="slide">
+        <div class="character">🥳</div>
+        <div class="heart">❤️💜❤️</div>
+        <h1>TERIMA KASIH!</h1>
+        <h2>Kalian Luar Biasa!</h2>
+        <p>
+            Riyan, Samudra, Rezi, Budi,
+            Widya, Ainun, Aang, Elly & Hesty.
+            <br><br>
+            Tetap kompak, tetap solid,
+            tetap bahagia dan jangan lupa istirahat!
+            <br><br>
+            <b>LOVE YOU ALL! 🥰</b>
+        </p>
+        <span class="tag">SOCIAL MEDIA FAMILY 2026</span>
+        <button class="next" onclick="ulang()" style="margin-top:25px">
+            🔄 ULANGI DARI AWAL
+        </button>
+    </section>
+
+    <!-- NAVIGASI -->
+    <div class="navigation">
+        <button class="back" onclick="prevSlide()">⬅ BACK</button>
+        <span class="counter" id="counter">1 / 9</span>
+        <button class="next" id="nextBtn" onclick="nextSlide()">
+            NEXT ➜
+        </button>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="footer">
+        Made with ❤️ for Social Media Team
+    </div>
+
+</div>
+
+<script>
+let current = 0;
+
+const slides = document.querySelectorAll(".slide");
+const total = slides.length;
+
+function showSlide(index) {
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+    });
+
+    slides[index].classList.add("active");
+
+    document.getElementById("counter").innerText =
+        (index + 1) + " / " + total;
+
+    document.getElementById("progress").style.width =
+        ((index + 1) / total * 100) + "%";
+
+    document.getElementById("nextBtn").style.display =
+        index === total - 1 ? "none" : "block";
+
+    if(index === total - 1) {
+        fireworks();
+    }
+}
+
+function nextSlide() {
+    if(current < total - 1) {
+        current++;
+        showSlide(current);
+    }
+}
+
+function prevSlide() {
+    if(current > 0) {
+        current--;
+        showSlide(current);
+    }
+}
+
+function ulang() {
+    current = 0;
+    showSlide(current);
+}
+
+function fireworks() {
+    const icons = ["🎉","💜","❤️","⭐","✨","🎊","🌸"];
+
+    for(let i=0; i<45; i++) {
+        let item = document.createElement("div");
+        item.className = "confetti";
+        item.innerHTML =
+            icons[Math.floor(Math.random()*icons.length)];
+
+        item.style.left = Math.random()*100 + "vw";
+        item.style.fontSize = (15+Math.random()*20)+"px";
+        item.style.animationDuration =
+            (2+Math.random()*3)+"s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => item.remove(),5000);
+    }
+}
+
+// Background emoji
+const bg = document.getElementById("background");
+const emojis = ["💜","⭐","🌸","✨","❤️","🎈"];
+
+for(let i=0; i<22; i++) {
+    let item = document.createElement("div");
+    item.className = "float";
+    item.innerHTML =
+        emojis[Math.floor(Math.random()*emojis.length)];
+
+    item.style.left = Math.random()*100+"%";
+    item.style.animationDuration =
+        (6+Math.random()*10)+"s";
+    item.style.animationDelay =
+        Math.random()*8+"s";
+    item.style.fontSize =
+        (15+Math.random()*18)+"px";
+
+    bg.appendChild(item);
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", function(e) {
+    if(e.key === "ArrowRight") nextSlide();
+    if(e.key === "ArrowLeft") prevSlide();
+});
+
+showSlide(current);
+</script>
+
+</body>
+</html>
